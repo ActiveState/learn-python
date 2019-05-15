@@ -123,8 +123,12 @@ written correctly.
     - [Data Compression](src/standard_libraries/test_zlib.py) (`zlib` library)
 
 
+---
+---
 
-## Prerequisites (before)
+
+## Prerequisites (w/o state tool)
+
 
 **Installing Python**
 
@@ -155,9 +159,19 @@ python --version
 pip install -r requirements.txt
 ```
 
-## Getting Started
+---
+---
 
-Run `state activate`
+
+
+## Getting Started (w/ state tool)
+
+Have ActiveState's [state tool](http://docs.activestate.com/platform/start/state.html)?
+- Run `state activate`
+
+---
+---
+
 
 ## Testing the Code
 
