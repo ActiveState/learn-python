@@ -2,17 +2,17 @@
 
 [![Build Status](https://travis-ci.org/trekhleb/learn-python.svg?branch=master)](https://travis-ci.org/trekhleb/learn-python)
 
-> This is a collection of Python scripts that are split by [topics](#table-of-contents) and contain 
+> This is a collection of Python scripts that are split by [topics](#table-of-contents) and contain
 code examples with explanations, different use cases and links to further readings.
 
-It is a **playground** because you may change or add the code to see how it works 
-and [test it out](#testing-the-code) using assertions. It also allows you 
+It is a **playground** because you may change or add the code to see how it works
+and [test it out](#testing-the-code) using assertions. It also allows you
 to [lint the code](#linting-the-code) you've wrote and check if it fits to Python code style guide.
-Altogether it might make your learning process to be more interactive and it might help you to keep 
+Altogether it might make your learning process to be more interactive and it might help you to keep
 code quality pretty high from very beginning.
 
-It is a **cheatsheet** because you may get back to these code examples once you want to recap the 
-syntax of [standard Python statements and constructions](#table-of-contents). Also because the 
+It is a **cheatsheet** because you may get back to these code examples once you want to recap the
+syntax of [standard Python statements and constructions](#table-of-contents). Also because the
 code is full of assertions you'll be able to see expected functions/statements output right away
 without launching them.
 
@@ -31,14 +31,14 @@ Here might go more detailed explanation of the current topic (i.e. general info 
 
 def test_list_type():
     """Explanation of sub-topic goes here.
-    
+
     Each file contains test functions that illustrate sub-topics (i.e. lists type, lists methods).
     """
-    
+
     # Here is an example of how to build a list.  <-- Comments here explain the action
     squares = [1, 4, 9, 16, 25]
-    
-    # Lists can be indexed and sliced. 
+
+    # Lists can be indexed and sliced.
     # Indexing returns the item.
     assert squares[0] == 1  # <-- Assertions here illustrate the result.
     # Slicing returns a new list.
@@ -48,10 +48,10 @@ def test_list_type():
 So normally you might want to do the following:
 
 - [Find the topic](#table-of-contents) you want to learn or recap.
-- Read comments and/or documentation that is linked in each script's docstring (as in example above). 
+- Read comments and/or documentation that is linked in each script's docstring (as in example above).
 - Look at code examples and assertions to see usage examples and expected output.
 - Change code or add new assertions to see how things work.
-- [Run tests](#testing-the-code) and [lint the code](#linting-the-code) to see if it work and is 
+- [Run tests](#testing-the-code) and [lint the code](#linting-the-code) to see if it work and is
 written correctly.
 
 ## Table of Contents
@@ -107,7 +107,7 @@ written correctly.
     - [Packages](src/modules/test_packages.py)
 8. **Errors and Exceptions**
     - [Handling Exceptions](src/exceptions/test_handle_exceptions.py) (`try` statement)
-    - [Raising Exceptions](src/exceptions/test_raise_exceptions.py) (`raise` statement) 
+    - [Raising Exceptions](src/exceptions/test_raise_exceptions.py) (`raise` statement)
 9. **Files**
     - [Reading and Writing](src/files/test_file_reading.py) (`with` statement)
     - [Methods of File Objects](src/files/test_file_methods.py)
@@ -122,18 +122,24 @@ written correctly.
     - [Dates and Times](src/standard_libraries/test_datetime.py) (`datetime` library)
     - [Data Compression](src/standard_libraries/test_zlib.py) (`zlib` library)
 
-## Prerequisites
+
+---
+---
+
+
+## Prerequisites (w/o state tool)
+
 
 **Installing Python**
 
-Make sure that you have [Python3 installed](https://realpython.com/installing-python/) on your machine.
+**Make sure** that you have [Python3 installed](https://realpython.com/installing-python/) on your machine.
 
-You might want to use [venv](https://docs.python.org/3/library/venv.html) standard Python library
-to create virtual environments and have Python, pip and all dependent packages to be installed and 
-served from the local project directory to avoid messing with system wide packages and their 
+You **might want to** use [venv](https://docs.python.org/3/library/venv.html) standard Python library
+to create virtual environments and have Python, pip and all dependent packages to be installed and
+served from the local project directory to avoid messing with system wide packages and their
 versions.
 
-Depending on your installation you might have access to Python3 interpreter either by
+**Depending on** your installation you might have access to Python3 interpreter either by
 running `python` or `python3`. The same goes for pip package manager - it may be accessible either
 by running `pip` or `pip3`.
 
@@ -143,15 +149,29 @@ You may check your Python version by running:
 python --version
 ```
 
-Note that in this repository whenever you see `python` it will be assumed that it is Python **3**.
+**Note that** in this repository whenever you see `python` it will be assumed that it is Python **3**.
 
 **Installing dependencies**
 
-Install all dependencies that are required for the project by running:
+**Install all** dependencies that are required for the project by running:
 
 ```bash
 pip install -r requirements.txt
 ```
+
+---
+---
+
+
+
+## Getting Started (w/ state tool)
+
+Have ActiveState's [state tool](http://docs.activestate.com/platform/start/state.html)?
+- Run `state activate`
+
+---
+---
+
 
 ## Testing the Code
 
@@ -185,7 +205,7 @@ to [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide please run:
 pylint ./src/
 ```
 
-In case if linter will detect error (i.e. `missing-docstring`) you may want to read more about 
+In case if linter will detect error (i.e. `missing-docstring`) you may want to read more about
 specific error by running:
 
 ```bash
