@@ -143,7 +143,7 @@ versions.
 running `python` or `python3`. The same goes for pip package manager - it may be accessible either
 by running `pip` or `pip3`.
 
-You may check your Python version by running:
+**You may** check your Python version by running:
 
 ```bash
 python --version
