@@ -1,0 +1,53 @@
+# Python application example with ActiveState Platform
+trigger:
+- activestate-platform-and-state-tool-setup
+jobs:
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) -n
+    displayName: 'Install State Tool'
+  - script: state deploy shnewto/learn-python
+    displayName: 'Deploy project'
+  - script: pylint src
+    displayName: 'Lint with pylint'
+  - script: flake8 src --statistics --count
+    displayName: 'Lint with flake8'
+  - script: pytest
+    displayName: 'Test with pytest'
+- job: macOS
+  pool:
+    vmImage: 'macOS-latest'
+  steps:
+  - script: sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) -n
+    displayName: 'Install State Tool'
+  - script: state deploy --force shnewto/learn-python
+    displayName: 'Deploy project'
+  - script: pylint src
+    displayName: 'Lint with pylint'
+  - script: flake8 src --statistics --count
+    displayName: 'Lint with flake8'
+  - script: pytest
+    displayName: 'Test with pytest'
+- job: Windows
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+  - powershell: | 
+      (New-Object Net.WebClient).DownloadFile('https://platform.activestate.com/dl/cli/install.ps1', 'install.ps1')
+      Invoke-Expression -Command "$env:PIPELINE_WORKSPACE\install.ps1 -n -t $env:AGENT_TOOLSDIRECTORY/bin" 
+      Write-Host "##vso[task.prependpath]$env:AGENT_TOOLSDIRECTORY\bin"
+    workingDirectory: $(Pipeline.Workspace)
+    displayName: 'Install State Tool'
+  - script: |
+      state deploy shnewto/learn-python --path %AGENT_TEMPDIRECTORY%
+      echo ##vso[task.prependpath]%AGENT_TEMPDIRECTORY%\bin
+      echo ##vso[task.setvariable variable=PATHEXT]%PATHEXT%;.LNK
+    displayName: 'Deploy project'
+  - script: pylint src
+    displayName: 'Lint with pylint'
+  - script: flake8 src --statistics --count
+    displayName: 'Lint with flake8'
+  - script: pytest
+    displayName: 'Test with pytest'
