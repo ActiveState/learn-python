@@ -2,7 +2,7 @@ steps:
 - name: docker.io/activestate/state_gcb
   args: ['state','auth']
 - name: docker.io/activestate/state_gcb
-  args: ['state', 'deploy', 'shnewto/learn-python', '--path', '/workspace/.state']
+  args: ['state', 'deploy', 'ActiveState-Labs/learn-python', '--path', '/workspace/.state']
 - name: docker.io/activestate/state_gcb
   args: ['pylint','src']
 - name: docker.io/activestate/state_gcb
