@@ -1,6 +1,4 @@
 project: https://platform.activestate.com/ActiveState-Labs/learn-python
-languages:
-- name: python
 scripts:
 - name: tests
   description: Executes tests
